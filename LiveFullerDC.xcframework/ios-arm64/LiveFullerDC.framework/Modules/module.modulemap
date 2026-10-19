@@ -1,0 +1,6 @@
+framework module LiveFullerDC {
+  umbrella header "LiveFullerDC.h"
+
+  export *
+  module * { export * }
+}
