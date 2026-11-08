@@ -105,18 +105,18 @@ public final class LFJoinVideoTokenInjector: URLProtocol {
 
 extension LFJoinVideoTokenInjector: URLSessionDataDelegate {
 
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask,
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask,
                     didReceive response: URLResponse,
                     completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
         completionHandler(.allow)
     }
 
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         client?.urlProtocol(self, didLoad: data)
     }
 
-    func urlSession(_ session: URLSession, task: URLSessionTask,
+    public func urlSession(_ session: URLSession, task: URLSessionTask,
                     didCompleteWithError error: Error?) {
         if let error = error {
             client?.urlProtocol(self, didFailWithError: error)
@@ -127,7 +127,7 @@ extension LFJoinVideoTokenInjector: URLSessionDataDelegate {
     }
 
     // Preserve redirects.
-    func urlSession(_ session: URLSession, task: URLSessionTask,
+    public func urlSession(_ session: URLSession, task: URLSessionTask,
                     willPerformHTTPRedirection response: HTTPURLResponse,
                     newRequest request: URLRequest,
                     completionHandler: @escaping (URLRequest?) -> Void) {
