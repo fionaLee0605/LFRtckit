@@ -74,7 +74,7 @@ public final class LFJoinVideoTokenInjector: URLProtocol {
         return true
     }
 
-    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    override public class func canonicalRequest(for request: URLRequest) -> URLRequest {
         return request
     }
 
